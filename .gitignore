@@ -12,3 +12,6 @@ Thumbs.db
 
 # Python bytecode
 *.pyc
+
+# Node modules
+node_modules/
