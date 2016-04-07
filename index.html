@@ -79,7 +79,47 @@
         <p>Si usted tiene algún problema y si se los encuentra, quizá pueda contratarlos.</p>
         <p>Ellos son <strong>El Equipo A</strong>.</p>
     </section>
-    <section>
+    <section id="contacto">
+        <header>
+            <h2>Contacto</h2>
+        </header>
+        <form novalidate method="get" action="/contacto">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="name@company.com" pattern="[A-Za-z0-9\.\+]+@[A-Za-z0-9]+\.[A-Za-z0-9\.]+" required>
+            </div>
+            <div>
+                <div>Tipo de misión</div>
+                <label>
+                    <input type="radio" name="tipo_mision" value="Rescate" required> Rescate
+                </label>
+                <label>
+                    <input type="radio" name="tipo_mision" value="Ajuste de cuentas" required> Ajuste de cuentas
+                </label>
+                <label>
+                    <input type="radio" name="tipo_mision" value="Disparos y explosivos sin heridos" required> Disparos y explosivos sin heridos
+                </label>
+                <label>
+                    <input type="radio" name="tipo_mision" value="Disparos y explosivos con heridos de mentira" required> Disparos y explosivos con heridos de mentira
+                </label>
+            </div>
+            <div>
+                <div>Tamño del ejército enemigo</div>
+                <label for="ejercito">Ejército</label>
+                <input type="number" id="ejercito" name="ejercito" min="10" required>
+            </div>
+            <div>
+                <label for="fecha">Fecha de trabajo:</label>
+                <input type="date" id="fecha" name="fecha" required>
+            </div>
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
     </section>
     <section>
     </section>
