@@ -1,0 +1,20 @@
+.web.header {
+	.title {
+		font-family: @brand-font-family;
+		text-transform: uppercase;
+	}
+	.main.menu {
+		background-color: @color-menu-bg;
+		a {
+			text-decoration: none;
+			color: @color-text;
+			display: inline-block;
+			padding: 15px;
+			transition: background-color 0.25s;
+			&:hover {
+				background-color: darken(@color-menu-bg, 15%);
+				color: lighten(@color-text, 85%);
+			}
+		}
+	}
+}
