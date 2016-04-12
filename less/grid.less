@@ -1,0 +1,14 @@
+// @columns: número de columnas del grid
+// @device: tipo de dispositivo
+// @i: número de elementos del grid que ocupa
+.grid-generator (@columns, @device, @i:1) when (@i <= @columns) {
+  .col-@{device}-@{i} {
+  	width:  (100% / @columns) * @i;
+  	float: left;
+  	display: inline-block;
+  }
+  .grid-generator(@columns, @device, (@i + 1));
+}
+
+// Genera @grid-columns co
+.grid-generator(@grid-columns, phone);

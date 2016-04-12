@@ -1,0 +1,18 @@
+// Clearfix
+// Bug css, cuando un contenedor tiene todos sus elementos flotantes
+// no es capaz de calcular su alto y puede tener malos comportamientos
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Imagenes ovaladas
+.circle {
+	border-radius: 50%;
+}
