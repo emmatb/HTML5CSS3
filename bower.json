@@ -1,0 +1,14 @@
+{
+  "name": "theateam",
+  "description": "web for the a team",
+  "main": "GruntFile.js",
+  "authors": [
+    "etaboada"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/emmatb/HTML5CSS3",
+  "private": true,
+  "dependencies": {
+    "animate.css": "^3.5.1"
+  }
+}

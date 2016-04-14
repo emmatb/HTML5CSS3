@@ -1,0 +1,55 @@
+.boing-animation {
+	animation: boing 1.5s;
+}
+
+.shake-it {
+	&:hover {
+		animation: shake 1s;
+	}
+}
+
+.bounce-in {
+	&:hover {
+	animation: bounceInDown 1s;
+ }
+}
+
+.flip-in {
+	&:hover {
+	 animation: flipInY 1s;
+	}
+}
+
+.roll-in {
+	&:hover {
+	  animation: rollIn 1s;
+	 }
+}
+
+@keyframes boing {
+	0% {
+		transform: translate(-200%, 200%);
+	}
+
+	50% {
+		transform: translate(0, -25%) scale(2);
+	}
+
+	60% {
+		transform: translate(0, 25%);
+	}
+
+	70%{
+		transform: translate(0, -10%);
+	}
+	80% {
+		transform: translate(0, 10%);
+	}
+	90%{
+		transform: translate(0, -5%);
+	}
+
+	100% {
+		transform: translate(0, 0);
+	}
+}

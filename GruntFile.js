@@ -29,6 +29,15 @@ module.exports = function(grunt) {
         }
       }
     },
+     imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    src: ['img/*.{png,jpg,gif}'], // Actual patterns to match
+                    dest: 'dist/' // Destination path prefix
+                }]
+            }
+        },
 
     browserSync: {
      development: {
@@ -49,9 +58,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   // Default task(s).
   grunt.registerTask('default', ['less:development', 'browserSync', 'watch']);
   grunt.registerTask('production', ['less:production']);
+  grunt.registerTask('images', ['imagemin']);
 
 };

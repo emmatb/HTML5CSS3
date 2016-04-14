@@ -12,3 +12,15 @@
 
 // Genera @grid-columns co
 .grid-generator(@grid-columns, phone);
+
+.if-is-tablet({
+  .grid-generator(@grid-columns, tablet);
+});
+
+.if-is-desktop({
+  .grid-generator(@grid-columns, desktop);
+});
+
+.row {
+	.clearfix();
+}

@@ -16,3 +16,17 @@
 .circle {
 	border-radius: 50%;
 }
+
+// Responsive
+.if-is-tablet (@rules) {
+	@media screen and (min-width: @tablet-width) {
+		@rules();
+	}
+}
+
+// Responsive
+.if-is-desktop (@rules) {
+	@media screen and (min-width: @desktop-width) {
+		@rules();
+	} 
+}
