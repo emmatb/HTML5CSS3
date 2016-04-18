@@ -7,7 +7,6 @@
     <title>El Equipo A</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
     <header class="web header">
         <h1 class="title">El equipo A</h1>
@@ -116,16 +115,16 @@
             <div>
                 <div>Tipo de misión</div>
                 <label>
-                    <input type="radio" name="tipo_mision" value="Rescate" required> Rescate
+                    <input type="radio" name="tipo_mision" id="tipo_mision_1" value="Rescate" required> Rescate
                 </label>
                 <label>
-                    <input type="radio" name="tipo_mision" value="Ajuste de cuentas" required> Ajuste de cuentas
+                    <input type="radio" name="tipo_mision" id="tipo_mision_2" value="Ajuste de cuentas" required> Ajuste de cuentas
                 </label>
                 <label>
-                    <input type="radio" name="tipo_mision" value="Disparos y explosivos sin heridos" required> Disparos y explosivos sin heridos
+                    <input type="radio" name="tipo_mision" id="tipo_mision_3" value="Disparos y explosivos sin heridos" required> Disparos y explosivos sin heridos
                 </label>
                 <label>
-                    <input type="radio" name="tipo_mision" value="Disparos y explosivos con heridos de mentira" required> Disparos y explosivos con heridos de mentira
+                    <input type="radio" name="tipo_mision" id="tipo_mision_4" value="Disparos y explosivos con heridos de mentira" required> Disparos y explosivos con heridos de mentira
                 </label>
             </div>
             <div>
@@ -138,12 +137,11 @@
                 <input type="date" id="fecha" name="fecha" required>
             </div>
             <div>
-                <button type="submit">Enviar</button>
+                <button id="form-button" type="button">Enviar</button>
             </div>
         </form>
     </section>
-    <section>
-    </section>
+    <script src="js/form.js"></script>
 </body>
 
 </html>
