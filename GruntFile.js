@@ -1,35 +1,39 @@
 module.exports = function(grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-    less: {
-      development: {
-          files: {
-              "style.css": "less/style.less"
-          }
-      },
-      production: {
-          options: {
-            compress: true
-          },
-          files: {
-              "style.css": "less/style.less"
-          }
-      }
-    },
+        less: {
+            development: {
+                files: {
+                    "style.css": "less/style.less"
+                }
+            },
+            production: {
+                options: {
+                    compress: true
+                },
+                files: {
+                    "style.css": "less/style.less"
+                }
+            }
+        },
 
-    watch: {
-      styles: {
-        files: ['less/*.less'],
-        tasks: ['less:development'],
-        options: {
-          spawn: false,
-        }
-      }
-    },
-     imagemin: {
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src: ['*.css', '*.html', 'js/*.js', 'dist/*.js']
+                },
+                options: {
+                    watchTask: true,
+                    // server: './'
+                    proxy: 'localhost:8000'
+                }
+            }
+        },
+
+        imagemin: {
             dynamic: {
                 files: [{
                     expand: true,
@@ -39,30 +43,42 @@ module.exports = function(grunt) {
             }
         },
 
-    browserSync: {
-     development: {
-       bsFiles: {
-        src : ['*.css', '*.html', 'js/*.js']
-      },
-     options: {
-        server: {
-            baseDir: "./"
+        concat: {
+            options: {
+                separator: ';',
+            },
+            dist: {
+                src: [
+                    'bower_components/jquery/dist/jquery.min.js',
+                    'js/todo/*.js'
+                ],
+                dest: 'dist/app.js',
+            },
         },
-        watchTask: true
-      }
-    }
-  }
-  });
 
-  // Loads the plugins
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browser-sync');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+        watch: {
+            styles: {
+                files: ['less/*.less'],
+                tasks: ['less:development']
+            },
+            js: {
+                files: ['js/todo/*.js', 'js/todo/**/*.js'],
+                tasks: ['concat']
+            }
+        }
 
-  // Default task(s).
-  grunt.registerTask('default', ['less:development', 'browserSync', 'watch']);
-  grunt.registerTask('production', ['less:production']);
-  grunt.registerTask('images', ['imagemin']);
+    });
+
+    // Loads the plugins
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+
+    // Default task(s).
+    grunt.registerTask('default', ['less:development', 'concat', 'browserSync', 'watch']);
+    grunt.registerTask('production', ['less:production'], 'concat');
+    grunt.registerTask('images', ['imagemin']);
 
 };
