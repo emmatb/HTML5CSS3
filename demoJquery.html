@@ -1,0 +1,62 @@
+<!doctype <html>
+<html>
+<head>
+	<title>Demo de Javascript</title>
+</head>
+<body>
+<div id="container" style="padding:20px;background:gold;">
+	<div id="counter">0</div>
+	<button id="start-button">Start</button>
+	<button id="pause-button">Pause</button>
+	<button id="stop-button">Stop</button>
+	<button id="reset-button">Reset</button>	
+</div>
+<script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
+<script>
+// Se ejecuta cuando todo el javascript está cargado
+$(document).ready(function(){
+  
+    jQuery("#container").on("click", function(event) {
+		var counterValue = jQuery("#counter").html();
+		console.log("counterValue before", counterValue);
+		counterValue = parseInt(counterValue);
+		counterValue++;
+		console.log("counterValue after", counterValue);
+		jQuery("#counter").html(counterValue);
+	});
+	jQuery("#reset-button").on("click", function(event) {
+		console.log("Reset!");
+		jQuery("counter").html(0);
+		event.stopPropagation();
+	});
+	var intervalID = null;
+	jQuery("#start-button").on("click", function(event) {
+		event.stopPropagation();
+		if (intervalID == null) {
+			intervalID = setInterval(function(){
+				jQuery("#container").click();
+			}, 1000);
+			this.disabled = true;
+			jQuery("#pause-button, #stop-button").attr("disabled", false);
+		}
+	});
+    jQuery("#pause-button").on("click", function(event) {
+   	    event.stopPropagation();
+		if (intervalID != null) {
+			clearInterval(intervalID);
+			this.disabled = true;
+			intervalID = null;
+			jQuery("#stop-button").attr("disabled", true);
+			jQuery("#start-button").attr("disabled", false);
+		}
+	});
+    jQuery("#stop-button").on("click", function(event) {
+   	    event.stopPropagation();
+		jQuery("#pause-button, #reset-button").click();
+		
+	});
+});
+
+</script>
+</body>
+</html>
